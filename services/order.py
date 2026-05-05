@@ -18,7 +18,8 @@ def create_order(
     order = Order.objects.create(user=user)
 
     if date:
-        order.created_at = parse_datetime(date) if isinstance(date, str) else date
+        order.created_at = parse_datetime(date) \
+            if isinstance(date, str) else date
         order.save(update_fields=["created_at"])
 
     for ticket in tickets:
